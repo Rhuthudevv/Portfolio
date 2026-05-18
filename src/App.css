@@ -1,0 +1,56 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1; /* Ensure content is above the fixed 3D canvas */
+}
+
+main {
+  flex: 1;
+}
+
+/* Base Section Styling */
+.section {
+  padding: 8rem 2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Subtle dividers using glowing borders instead of solid lines */
+.section + .section {
+  position: relative;
+}
+
+.section + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 1000px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+
+/* Update section backgrounds to be fully transparent or highly translucent */
+.skills,
+.projects {
+  background: transparent;
+}
